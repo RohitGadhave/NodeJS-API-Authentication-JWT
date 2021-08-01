@@ -2,3 +2,20 @@ GET http://localhost:3000/
 
 ###
 POST http://localhost:3000/auth/signup
+Content-Type:application/json
+
+{
+    "email":"rohit@gmail.com",
+    "name":"rohit",
+    "password":"rohit1234",
+    "mobile":"9604075255"
+
+}
+###
+POST http://localhost:3000/auth/signin
+Content-Type:application/json
+
+{
+    "email":"rohit@gmail",    
+    "password":"rohit1234",    
+}

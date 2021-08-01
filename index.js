@@ -5,16 +5,19 @@ require('dotenv').config();
  
 require('./app/helpers/init_mogodb');
 
-//import routes
-const auth = require('./app/routes/auth');
+
 
 // Initialize the app
 const app = express();
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+
 let port = process.env.PORT || 4000;
 
 // Import routes 
 //require("./app/routes/auth")(app);
-
+//import routes
+const auth = require('./app/routes/auth.rout');
 app.use('/auth', auth);
 
 app.use(async (req, res, next) => {
