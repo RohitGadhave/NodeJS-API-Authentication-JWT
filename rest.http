@@ -5,10 +5,10 @@ POST http://localhost:3000/auth/signup
 Content-Type:application/json
 
 {
-    "email":"rohit12@gmail.com",
+    "email":"rohit11@gmail.com",
     "name":"rohit1",
     "password":"rohit1234",
-    "mobile":"9604075256"
+    "mobile":"9604075251"
 
 }
 ###
@@ -16,6 +16,6 @@ POST http://localhost:3000/auth/signin
 Content-Type:application/json
 
 {
-    "email":"rohit1@gmail.com",    
+    "email":"rohit11@gmail.com",    
     "password":"rohit1234"    
 }

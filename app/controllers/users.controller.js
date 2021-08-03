@@ -2,7 +2,7 @@ const usersModel = require('../models/users.models');
 const createErrors = require('http-errors');
 
 const { authSchema, signInSchema } = require('../helpers/validation_schema');
-
+const { signAccessToken } = require('../helpers/jwt_helper');
 //signup new user
 module.exports.Signup = async (req, res, next) => {
     try {
@@ -20,10 +20,13 @@ module.exports.Signup = async (req, res, next) => {
         const newUser = new usersModel(result);
 
         const savedUser = await newUser.save()
-        res.send(savedUser);
+
+        //Sign A Access Token
+        const accessToken = await signAccessToken(savedUser);
+        res.send({ user: savedUser, accessToken });
     } catch (error) {
         //check joi error
-        if(error.isJoi===true) error.status=422;
+        if (error.isJoi === true) error.status = 422;
         next(error)
     }
 };
@@ -32,18 +35,25 @@ module.exports.Signup = async (req, res, next) => {
 module.exports.SignIn = async (req, res, next) => {
     try {
         const { email, password } = req.body;
-        console.log(req.body);
+        //console.log(req.body);
+        //JOI Validation
         const result = await signInSchema.validateAsync({ email, password });
         //if (!email || !password) throw createErrors.BadRequest();
 
         //check user present or not
-        const user = await usersModel.findOne({ email: result.email })
+        let user = await usersModel.findOne({ email: result.email })
         if (!user) throw createErrors.NotFound(`${email} Email Not Found`);
 
-        res.send(user);
+        const accessToken = await signAccessToken(user);
+
+        const data = {};
+        data.user = user;
+        data.accessToken = accessToken;
+        //console.log(data);
+        res.send(data);
     } catch (error) {
         //check joi error
-        if(error.isJoi===true) error.status=422;
+        if (error.isJoi === true) error.status = 422;
         next(error)
     }
 
