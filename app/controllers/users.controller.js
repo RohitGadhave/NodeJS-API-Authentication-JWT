@@ -26,7 +26,7 @@ module.exports.Signup = async (req, res, next) => {
         res.send({ user: savedUser, accessToken });
     } catch (error) {
         //check joi error
-        if (error.isJoi === true) error.status = 422;
+        if (error.isJoi === true) next(createErrors.BadRequest("Invalid Data"));
         next(error)
     }
 };
@@ -41,9 +41,12 @@ module.exports.SignIn = async (req, res, next) => {
         //if (!email || !password) throw createErrors.BadRequest();
 
         //check user present or not
-        let user = await usersModel.findOne({ email: result.email })
-        if (!user) throw createErrors.NotFound(`${email} Email Not Found`);
-
+        const user = await usersModel.findOne({ email: result.email })
+        if (!user) throw createErrors.NotFound(`${result.email} Email Not Found`);
+        //validate Password
+        const isMatch = await user.isValidPassword(result.password);
+        //console.log(isMatch,"isMatch")
+        if (!isMatch) throw createErrors.Unauthorized("Email/Password not valid");
         const accessToken = await signAccessToken(user);
 
         const data = {};
@@ -53,8 +56,19 @@ module.exports.SignIn = async (req, res, next) => {
         res.send(data);
     } catch (error) {
         //check joi error
-        if (error.isJoi === true) error.status = 422;
+        if (error.isJoi === true) next(createErrors.BadRequest("Invalid Details"));
         next(error)
     }
 
+};
+
+
+module.exports.UsersList = async (req, res, next) => {
+    try {
+        console.log(req.headers['authorization']);
+        const userList = await usersModel.find();
+        res.send({userList,req:req.body});
+    } catch (error) {
+        next(error);
+    }
 };

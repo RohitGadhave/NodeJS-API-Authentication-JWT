@@ -1,14 +1,21 @@
-GET http://localhost:3000/
+GET http://localhost:3000/api/user/userslist
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDMxQGdtYWlsLmNvbSIsImlhdCI6MTYyODE4MzY0MiwiZXhwIjoxNjI4MTgzODIyLCJhdWQiOiI2MTA5ODcyODVmYjk5MDJiYzRlMmViODkiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.ERYzVfigg1khXeKHipvMlFdl2FWdRLfwFNRdfTGvx0c
 
+Content-Type: application/json
+
+
+{
+    "accessToken":"11"
+}
 ###
 POST http://localhost:3000/auth/signup
 Content-Type:application/json
 
 {
-    "email":"rohit11@gmail.com",
+    "email":"rohit32@gmail.com",
     "name":"rohit1",
     "password":"rohit1234",
-    "mobile":"9604075251"
+    "mobile":"9604075257"
 
 }
 ###
@@ -16,6 +23,6 @@ POST http://localhost:3000/auth/signin
 Content-Type:application/json
 
 {
-    "email":"rohit11@gmail.com",    
+    "email":"rohit31@gmail.com",    
     "password":"rohit1234"    
 }

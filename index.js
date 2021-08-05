@@ -18,7 +18,9 @@ let port = process.env.PORT || 4000;
 //require("./app/routes/auth")(app);
 //import routes
 const auth = require('./app/routes/auth.rout');
+const userRout =require('./app/routes/users.rout');
 app.use('/auth', auth);
+app.use('/api/user', userRout);
 
 app.use(async (req, res, next) => {
     next(createErrors.NotFound());

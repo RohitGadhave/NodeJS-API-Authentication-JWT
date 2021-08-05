@@ -47,6 +47,19 @@ userSchema.post('save', async function (next) {
     }
 });
 
+//validate password
+userSchema.methods.isValidPassword =
+    async function (password) {
+        try {
+            //console.log(password,"password")
+            const flag =await bcrypt.compare(password, this.password);
+            //console.log(flag,"flag");
+            return flag;
+        } catch (error) {
+            throw error;
+        }
+    };
+
 const UserModel = mongoose.model('users', userSchema);
 
 module.exports = UserModel;
