@@ -1,5 +1,5 @@
 GET http://localhost:3000/api/user/userslist
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDMxQGdtYWlsLmNvbSIsImlhdCI6MTYyODE4MzY0MiwiZXhwIjoxNjI4MTgzODIyLCJhdWQiOiI2MTA5ODcyODVmYjk5MDJiYzRlMmViODkiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.ERYzVfigg1khXeKHipvMlFdl2FWdRLfwFNRdfTGvx0c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDMxQGdtYWlsLmNvbSIsImlhdCI6MTYyODE5MTY0OCwiZXhwIjoxNjI4MTkxODI4LCJhdWQiOiI2MTA5ODcyODVmYjk5MDJiYzRlMmViODkiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.sNHNxuq6RJFv4FwfZwbbv2-XfkhjU12k-dZoka4QgLM
 
 Content-Type: application/json
 
@@ -25,4 +25,13 @@ Content-Type:application/json
 {
     "email":"rohit31@gmail.com",    
     "password":"rohit1234"    
+}
+###
+POST http://localhost:3000/auth/refresh-token
+Content-Type:application/json
+
+{
+    "email":"rohit31@gmail.com",    
+    "password":"rohit1234",
+    "refreshAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDMxQGdtYWlsLmNvbSIsImlhdCI6MTYyODI3MzIxNiwiZXhwIjoxNjU5ODA5MjE2LCJhdWQiOiI2MTA5ODcyODVmYjk5MDJiYzRlMmViODkiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.SVXFMF3sOxrb15kOa9ymApXIKyMD4zJ21WbiK5C43AY"    
 }

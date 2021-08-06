@@ -2,9 +2,9 @@ const usersModel = require('../models/users.models');
 const createErrors = require('http-errors');
 
 const { authSchema, signInSchema } = require('../helpers/validation_schema');
-const { signAccessToken } = require('../helpers/jwt_helper');
+const { signAccessToken, signRefreshAccessToken } = require('../middlewares/auth_jwt.middlewares');
 //signup new user
-module.exports.Signup = async (req, res, next) => {
+Signup = async (req, res, next) => {
     try {
         const { email, password, name, mobile } = req.body
         //if (!email || !password || !name || !mobile) throw createErrors.BadRequest();
@@ -23,7 +23,8 @@ module.exports.Signup = async (req, res, next) => {
 
         //Sign A Access Token
         const accessToken = await signAccessToken(savedUser);
-        res.send({ user: savedUser, accessToken });
+        const refreshToken = await signRefreshAccessToken(savedUser);
+        res.send({ user: savedUser, accessToken, refreshAccessToken: refreshToken });
     } catch (error) {
         //check joi error
         if (error.isJoi === true) next(createErrors.BadRequest("Invalid Data"));
@@ -32,7 +33,7 @@ module.exports.Signup = async (req, res, next) => {
 };
 
 
-module.exports.SignIn = async (req, res, next) => {
+SignIn = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         //console.log(req.body);
@@ -48,10 +49,12 @@ module.exports.SignIn = async (req, res, next) => {
         //console.log(isMatch,"isMatch")
         if (!isMatch) throw createErrors.Unauthorized("Email/Password not valid");
         const accessToken = await signAccessToken(user);
+        const refreshToken = await signRefreshAccessToken(user);
 
         const data = {};
         data.user = user;
         data.accessToken = accessToken;
+        data.refreshAccessToken = refreshToken;
         //console.log(data);
         res.send(data);
     } catch (error) {
@@ -63,12 +66,14 @@ module.exports.SignIn = async (req, res, next) => {
 };
 
 
-module.exports.UsersList = async (req, res, next) => {
+UsersList = async (req, res, next) => {
     try {
-        console.log(req.headers['authorization']);
         const userList = await usersModel.find();
-        res.send({userList,req:req.body});
+        res.send({ userList, req: req.body });
     } catch (error) {
         next(error);
     }
 };
+
+const usersController = { UsersList, SignIn, Signup };
+module.exports = usersController;

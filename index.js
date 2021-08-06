@@ -2,25 +2,22 @@ const express = require('express');
 const morgan = require('morgan');
 const createErrors = require('http-errors');
 require('dotenv').config();
- 
+
 require('./app/helpers/init_mogodb');
 
 
 
 // Initialize the app
 const app = express();
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 let port = process.env.PORT || 4000;
 
 // Import routes 
-//require("./app/routes/auth")(app);
-//import routes
-const auth = require('./app/routes/auth.rout');
-const userRout =require('./app/routes/users.rout');
-app.use('/auth', auth);
-app.use('/api/user', userRout);
+require('./app/routes/index.rout').allRouts(app);
+
+//error
 
 app.use(async (req, res, next) => {
     next(createErrors.NotFound());
