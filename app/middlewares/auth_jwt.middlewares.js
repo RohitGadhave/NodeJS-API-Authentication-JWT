@@ -18,7 +18,7 @@ signAccessToken = (user) => {
         //create access token
         JWT.sign(payload, secret, options, (error, token) => {
             if (error) {
-                console.error(error, "JWT ERROR");
+               // console.error(error, "JWT ERROR");
                 return reject(createErrors.InternalServerError())
             };
             //console.log(token);
@@ -44,7 +44,7 @@ verifyAccessToken = (req, res, next) => {
             }
         }
         req.payload = payload;
-        console.log(payload, "payload");
+        //console.log(payload, "payload");
         next();
     })
 
@@ -66,7 +66,7 @@ signRefreshAccessToken = (user) => {
         //create access token
         JWT.sign(payload, secret, options, (error, token) => {
             if (error) {
-                console.error(error, "JWT ERROR");
+                //console.error(error, "JWT ERROR");
                 return reject(createErrors.InternalServerError())
             };
             //console.log(token);

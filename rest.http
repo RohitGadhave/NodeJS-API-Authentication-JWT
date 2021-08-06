@@ -1,5 +1,5 @@
 GET http://localhost:3000/api/user/userslist
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDMxQGdtYWlsLmNvbSIsImlhdCI6MTYyODE5MTY0OCwiZXhwIjoxNjI4MTkxODI4LCJhdWQiOiI2MTA5ODcyODVmYjk5MDJiYzRlMmViODkiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.sNHNxuq6RJFv4FwfZwbbv2-XfkhjU12k-dZoka4QgLM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDIyQGdtYWlsLmNvbSIsImlhdCI6MTYyODI3NTQyMSwiZXhwIjoxNjI4Mjc1NjAxLCJhdWQiOiI2MTBkODJiOGZmZDQ3MTJlNDgxZTA3YTYiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.ZulWShXpSJFYEnRIFxOK2sW_sWjb8d2Mmic_Lonxse0
 
 Content-Type: application/json
 
@@ -12,10 +12,10 @@ POST http://localhost:3000/auth/signup
 Content-Type:application/json
 
 {
-    "email":"rohit32@gmail.com",
+    "email":"rohit22@gmail.com",
     "name":"rohit1",
     "password":"rohit1234",
-    "mobile":"9604075257"
+    "mobile":"9604075267"
 
 }
 ###
@@ -23,7 +23,7 @@ POST http://localhost:3000/auth/signin
 Content-Type:application/json
 
 {
-    "email":"rohit31@gmail.com",    
+    "email":"rohit22@gmail.com",    
     "password":"rohit1234"    
 }
 ###
@@ -33,5 +33,5 @@ Content-Type:application/json
 {
     "email":"rohit31@gmail.com",    
     "password":"rohit1234",
-    "refreshAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDMxQGdtYWlsLmNvbSIsImlhdCI6MTYyODI3MzIxNiwiZXhwIjoxNjU5ODA5MjE2LCJhdWQiOiI2MTA5ODcyODVmYjk5MDJiYzRlMmViODkiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.SVXFMF3sOxrb15kOa9ymApXIKyMD4zJ21WbiK5C43AY"    
+    "refreshAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDIyQGdtYWlsLmNvbSIsImlhdCI6MTYyODI3NTQ3MCwiZXhwIjoxNjU5ODExNDcwLCJhdWQiOiI2MTBkODJiOGZmZDQ3MTJlNDgxZTA3YTYiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.6vl_HF6aeiX1qXxe-wywPK-nmq8o4qi3c1xAiNSEkUA"    
 }
