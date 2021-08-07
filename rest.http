@@ -1,5 +1,5 @@
 GET http://localhost:3000/api/user/userslist
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDIyQGdtYWlsLmNvbSIsImlhdCI6MTYyODI3NTQyMSwiZXhwIjoxNjI4Mjc1NjAxLCJhdWQiOiI2MTBkODJiOGZmZDQ3MTJlNDgxZTA3YTYiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.ZulWShXpSJFYEnRIFxOK2sW_sWjb8d2Mmic_Lonxse0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDIxQGdtYWlsLmNvbSIsImlhdCI6MTYyODI3ODk0OCwiZXhwIjoxNjI4Mjc5MTI4LCJhdWQiOiI2MTBkOTA3ZjYxMmNjMDE0MGNmODhjYWMiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.mRKNtySHxP6qrf3QSTnUq8lEaFPL_nAiZJXQPDHVMlU
 
 Content-Type: application/json
 
@@ -12,10 +12,10 @@ POST http://localhost:3000/auth/signup
 Content-Type:application/json
 
 {
-    "email":"rohit22@gmail.com",
+    "email":"rohit21@gmail.com",
     "name":"rohit1",
     "password":"rohit1234",
-    "mobile":"9604075267"
+    "mobile":"9604075261"
 
 }
 ###
@@ -23,7 +23,7 @@ POST http://localhost:3000/auth/signin
 Content-Type:application/json
 
 {
-    "email":"rohit22@gmail.com",    
+    "email":"rohit21@gmail.com",    
     "password":"rohit1234"    
 }
 ###

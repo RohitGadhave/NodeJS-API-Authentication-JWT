@@ -24,7 +24,7 @@ const userSchemaInterFace = {
     },
 };
 
-const userSchema = new Schema(userSchemaInterFace);
+const userSchema = new Schema(userSchemaInterFace,{ timestamps: true });
 
 //middleware
 
