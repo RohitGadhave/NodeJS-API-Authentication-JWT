@@ -56,6 +56,7 @@ SignIn = async (req, res, next) => {
         data.accessToken = accessToken;
         data.refreshAccessToken = refreshToken;
         //console.log(data);
+        console.log(user);
         res.send(data);
     } catch (error) {
         //check joi error

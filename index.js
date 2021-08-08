@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const createErrors = require('http-errors');
 require('dotenv').config();
 
@@ -11,12 +12,12 @@ require('./app/helpers/init_mogodb');
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(cors());
+app.options('*', cors());
 let port = process.env.PORT || 4000;
 
 // Import routes 
 require('./app/routes/index.rout').allRouts(app);
-
 //error
 
 app.use(async (req, res, next) => {
