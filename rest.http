@@ -1,0 +1,39 @@
+GET http://localhost:3000/
+###
+GET http://localhost:3000/api/user/userslist
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDIxQGdtYWlsLmNvbSIsImlhdCI6MTYyODQzNjYxNiwiZXhwIjoxNjI4NDM2Nzk2LCJhdWQiOiI2MTBkOTA3ZjYxMmNjMDE0MGNmODhjYWMiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.UG4y6krZq-XNg2nVf7exlbNyQn_MN7DQs1i8rHnqrXA
+
+Content-Type: application/json
+
+
+{
+    "accessToken":"11"
+}
+###
+POST http://localhost:3000/api/auth/signup
+Content-Type:application/json
+
+{
+    "email":"rohit21@gmail.com",
+    "name":"rohit1",
+    "password":"rohit1234",
+    "mobile":"9604075261"
+
+}
+###
+POST http://localhost:3000/api/auth/signin
+Content-Type:application/json
+
+{
+    "email":"rohit21@gmail.com",    
+    "password":"rohit1234"    
+}
+###
+POST http://localhost:3000/api/auth/refresh-token
+Content-Type:application/json
+
+{
+    "email":"rohit31@gmail.com",    
+    "password":"rohit1234",
+    "refreshAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9oaXQxIiwiZW1haWwiOiJyb2hpdDIyQGdtYWlsLmNvbSIsImlhdCI6MTYyODI3NTQ3MCwiZXhwIjoxNjU5ODExNDcwLCJhdWQiOiI2MTBkODJiOGZmZDQ3MTJlNDgxZTA3YTYiLCJpc3MiOiJyb2hpdGcudGVjaCJ9.6vl_HF6aeiX1qXxe-wywPK-nmq8o4qi3c1xAiNSEkUA"    
+}

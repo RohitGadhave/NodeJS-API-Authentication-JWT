@@ -1,0 +1,37 @@
+{
+  "name": "NodeJS-API-Authentication-JWT",
+  "version": "1.0.0",
+  "description": "API Authentication Using JWT MongoDb, Redis and Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RohitGadhave/NodeJS-API-Authentication-JWT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RohitGadhave/NodeJS-API-Authentication-JWT/issues"
+  },
+  "homepage": "https://github.com/RohitGadhave/NodeJS-API-Authentication-JWT#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^2.1.0",
+    "helmet": "^4.6.0",
+    "http-errors": "^1.8.0",
+    "joi": "^17.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.5",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12",
+    "xss-clean": "^0.1.1"
+  }
+}
